@@ -1,0 +1,49 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  color: var(--text-h);
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--text);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  min-width: 320px;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.status-badge {
+  font-size: 0.9em;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: var(--surface-alt);
+}
+
+.summary {
+  margin: 16px 0 0;
+  color: var(--text);
+}
