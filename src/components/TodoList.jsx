@@ -1,16 +1,29 @@
 // רכיב 1: TodoList
-// מקבל מערך 'todos' (כנתון, נמסר מה-App) ומציג כל משימה עם שמה וסטטוסה.
-function TodoList({ todos }) {
+// todos    – מערך המשימות
+// onToggle – פונקציה שמקבלת id ומחליפה סטטוס (נמסרת מה-App)
+function TodoList({ todos, onToggle }) {
   return (
     <ul className="todo-list">
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          <span>{todo.name}</span>
-          <span className="status-badge">
-            {todo.status === 'done' ? '✓ הושלם' : '⏳ בתהליך'}
-          </span>
-        </li>
-      ))}
+      {todos.map((todo) => {
+        const isDone = todo.status === 'done'
+
+        return (
+          <li key={todo.id}>
+            <label className="todo-item">
+              <input
+                type="checkbox"
+                checked={isDone}
+                onChange={() => onToggle(todo.id)}
+              />
+              <span className={isDone ? 'done' : ''}>{todo.name}</span>
+            </label>
+
+            <span className="status-badge">
+              {isDone ? '✓ הושלם' : '⏳ בתהליך'}
+            </span>
+          </li>
+        )
+      })}
     </ul>
   )
 }
